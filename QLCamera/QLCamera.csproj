@@ -58,6 +58,12 @@
     <Compile Include="FrmQLKH.Designer.cs">
       <DependentUpon>FrmQLKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQLNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQLNCC.Designer.cs">
+      <DependentUpon>FrmQLNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +78,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLKH.resx">
       <DependentUpon>FrmQLKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQLNCC.resx">
+      <DependentUpon>FrmQLNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLSP.resx">
       <DependentUpon>FrmQLSP.cs</DependentUpon>
@@ -110,6 +120,10 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{F5D6E03E-CD8E-4F09-97D8-C2A24444ED8A}</Project>
       <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{C99F8DAC-D2FB-4E13-83BC-A359A603739E}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
