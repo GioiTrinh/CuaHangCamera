@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DAO
@@ -13,9 +14,17 @@ namespace DAO
             da = new DataAdapter();
         }
 
-        public List<NhaCungCap> GetNhaCungCaps()
+        public List<NhaCungCap> GetNhaCungCaps(string key = "")
         {
             string sql = "SELECT Id, MaNCC, TenNCC, DiaChi, Sdt, Email, Website FROM NhaCungCap";
+            if (!string.IsNullOrEmpty(key))
+            {
+                sql += " WHERE MaNCC LIKE + N'%" + key + "%' OR "
+                    + "DiaChi LIKE + N'%" + key + "%' OR "
+                    + "Sdt LIKE + N'%" + key + "%' OR " 
+                    + "Email LIKE + N'%" + key + "%' OR " 
+                    + "Website LIKE + N'%" + key + "%'";
+            }
             List<NhaCungCap> nhaCungCaps = new List<NhaCungCap>();
             try
             {
@@ -96,7 +105,7 @@ namespace DAO
 
         public bool CapNhatNhaCungCap(NhaCungCap ncc)
         {
-            string sql = @"UPDATE NhaCungCap SET MaNCC = N'" + ncc.MaNCC + "', TenNCC = N'" + ncc.TenNCC + "', DiaChi = N'" + ncc.DiaChi + "', Sdt = N'" + ncc.Sdt + "', Email = N'" + ncc.Email + "', Website = N'" + ncc.Website + "'";
+            string sql = @"UPDATE NhaCungCap SET MaNCC = N'" + ncc.MaNCC + "', TenNCC = N'" + ncc.TenNCC + "', DiaChi = N'" + ncc.DiaChi + "', Sdt = N'" + ncc.Sdt + "', Email = N'" + ncc.Email + "', Website = N'" + ncc.Website + "' WHERE Id = " + ncc.Id;
             try
             {
                 var result = false;
@@ -126,6 +135,53 @@ namespace DAO
             catch (Exception e)
             {
                 MessageBox.Show(e.Message); 
+                return false;
+            }
+        }
+
+        public bool NhapHangTuNhaCungCap(int nhanVienId, int nccId, List<ChiTietHoaDonMua> chiTietHoaDonMuas)
+        {
+            if (chiTietHoaDonMuas.Any())
+            {
+                string sql = @"INSERT INTO HoaDonMua VALUES (" + nhanVienId + ", " + nccId + DateTime.Now + ", " + null + ")";
+                try
+                {
+                    var result = false;
+                    da.Connect();
+                    result = da.ExecuteNonQuery(sql) > 0;
+                    if (result)
+                    {
+                        var sqlGetId = "SELECT TOP 1 Id FROM HoaDonMua ORDER BY DESC";
+                        var val = da.ExecuteScalar(sqlGetId).ToString();
+                        int chiTietHoaDonMuaId;
+                        if (int.TryParse(val, out chiTietHoaDonMuaId)) {
+                            double tongTien = 0;
+                            foreach (var chiTietHoaDonMua in chiTietHoaDonMuas)
+                            {
+                                sql = @"INSERT INTO ChiTietHoaDonMua VALUES (" + chiTietHoaDonMuaId + ", " + chiTietHoaDonMua.SanPhamId + ", " + chiTietHoaDonMua.SoLuong + ")";
+                                result = da.ExecuteNonQuery(sql) > 0;
+                                sql = @"SELECT Gia FROM SanPham WHERE Id = " + chiTietHoaDonMua.SanPhamId;
+                                double gia = double.Parse(da.ExecuteScalar(sql).ToString());
+                                tongTien += gia * chiTietHoaDonMua.SoLuong;
+                            }
+
+                            sql = @"UPDATE HoaDonMua SET TongTien = " + tongTien + " WHERE Id = " + chiTietHoaDonMuaId;
+                            result = da.ExecuteNonQuery(sql) > 0;
+                        }
+                    }
+
+                    da.Disconnet();
+                    return result;
+                }
+                catch (Exception e)
+                {
+
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+            else
+            {
                 return false;
             }
         }
