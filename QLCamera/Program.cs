@@ -8,6 +8,7 @@ namespace QLCamera
 {
     static class Program
     {
+        public static bool _isSignedIn = false;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,9 @@ namespace QLCamera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new FrmQLNCC());
+            if(_isSignedIn)
+                Application.Run(new FrmQLKH());
         }
     }
 }

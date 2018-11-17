@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QLCamera
 {
-    public partial class FrmLogin : Form
+    public partial class Home : Form
     {
-        public FrmLogin()
+        public Home()
         {
             InitializeComponent();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
