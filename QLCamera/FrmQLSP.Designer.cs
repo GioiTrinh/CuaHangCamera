@@ -49,7 +49,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(181, 15);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 23);
+            this.textBox1.Size = new System.Drawing.Size(104, 23);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -57,7 +57,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(181, 44);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 23);
+            this.textBox2.Size = new System.Drawing.Size(104, 23);
             this.textBox2.TabIndex = 1;
             // 
             // panel1
@@ -72,12 +72,12 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Location = new System.Drawing.Point(481, 17);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 155);
+            this.panel1.Size = new System.Drawing.Size(310, 152);
             this.panel1.TabIndex = 2;
             // 
             // btLuu
             // 
-            this.btLuu.Location = new System.Drawing.Point(323, 116);
+            this.btLuu.Location = new System.Drawing.Point(210, 114);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(75, 23);
             this.btLuu.TabIndex = 8;
@@ -86,7 +86,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(255, 73);
+            this.numericUpDown2.Location = new System.Drawing.Point(235, 73);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
             this.numericUpDown2.TabIndex = 7;
