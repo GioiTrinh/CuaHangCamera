@@ -66,21 +66,19 @@
             // 
             // txtMaSanPham
             // 
-            this.txtMaSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSanPham.Location = new System.Drawing.Point(219, 18);
-            this.txtMaSanPham.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaSanPham.Name = "txtMaSanPham";
-            this.txtMaSanPham.Size = new System.Drawing.Size(141, 26);
-            this.txtMaSanPham.TabIndex = 0;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(181, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 23);
+            this.textBox1.TabIndex = 0;
             // 
             // txtTenSanPham
             // 
-            this.txtTenSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenSanPham.Location = new System.Drawing.Point(219, 54);
-            this.txtTenSanPham.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTenSanPham.Name = "txtTenSanPham";
-            this.txtTenSanPham.Size = new System.Drawing.Size(310, 26);
-            this.txtTenSanPham.TabIndex = 1;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(181, 44);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(217, 23);
+            this.textBox2.TabIndex = 1;
             // 
             // panel1
             // 
@@ -102,14 +100,12 @@
             this.panel1.Location = new System.Drawing.Point(793, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(560, 248);
+            this.panel1.Size = new System.Drawing.Size(420, 155);
             this.panel1.TabIndex = 2;
             // 
             // btLuu
             // 
-            this.btLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLuu.Location = new System.Drawing.Point(431, 197);
-            this.btLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btLuu.Location = new System.Drawing.Point(323, 116);
             this.btLuu.Name = "btLuu";
             this.btLuu.Size = new System.Drawing.Size(98, 31);
             this.btLuu.TabIndex = 8;
@@ -119,12 +115,10 @@
             // 
             // nmrThang
             // 
-            this.nmrThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmrThang.Location = new System.Drawing.Point(386, 89);
-            this.nmrThang.Margin = new System.Windows.Forms.Padding(4);
-            this.nmrThang.Name = "nmrThang";
-            this.nmrThang.Size = new System.Drawing.Size(67, 26);
-            this.nmrThang.TabIndex = 7;
+            this.numericUpDown2.Location = new System.Drawing.Point(255, 73);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDown2.TabIndex = 7;
             // 
             // nmrNam
             // 
