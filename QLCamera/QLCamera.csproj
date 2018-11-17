@@ -64,6 +64,12 @@
     <Compile Include="FrmQLNCC.Designer.cs">
       <DependentUpon>FrmQLNCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhapHangTuNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhapHangTuNCC.Designer.cs">
+      <DependentUpon>FrmNhapHangTuNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <EmbeddedResource Include="FrmQLNCC.resx">
       <DependentUpon>FrmQLNCC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhapHangTuNCC.resx">
+      <DependentUpon>FrmNhapHangTuNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQLSP.resx">
       <DependentUpon>FrmQLSP.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +112,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\DTO.NhaCungCap.datasource" />
+    <None Include="Properties\DataSources\DTO.SanPham.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,10 +132,17 @@
       <Project>{F5D6E03E-CD8E-4F09-97D8-C2A24444ED8A}</Project>
       <Name>BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{23B2CBB5-A515-4493-BDDD-7B3B223A623E}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{C99F8DAC-D2FB-4E13-83BC-A359A603739E}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\supplier.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

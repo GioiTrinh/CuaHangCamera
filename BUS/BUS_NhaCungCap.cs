@@ -11,9 +11,9 @@ namespace BUS
         {
             da = new DAO_NhaCungCap();
         }
-        public List<NhaCungCap> GetNhaCungCaps()
+        public List<NhaCungCap> GetNhaCungCaps(string key = "")
         {
-            return da.GetNhaCungCaps();
+            return da.GetNhaCungCaps(key);
         }
 
         public NhaCungCap GetNhaCungCap(int id)
@@ -34,6 +34,11 @@ namespace BUS
         public bool XoaNhaCungCap(int id)
         {
             return da.XoaNhaCungCap(id);
+        }
+
+        public bool NhapHangTuNhaCungCap(int nhanVienId, int nccId, List<ChiTietHoaDonMua> chiTietHoaDonMuas)
+        {
+            return da.NhapHangTuNhaCungCap(nhanVienId, nccId, chiTietHoaDonMuas);
         }
     }
 }
