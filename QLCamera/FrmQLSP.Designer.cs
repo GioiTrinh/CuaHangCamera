@@ -65,20 +65,7 @@
             this.SuspendLayout();
             // 
             // txtMaSanPham
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(181, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 23);
-            this.textBox1.TabIndex = 0;
-            // 
-            // txtTenSanPham
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(181, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 23);
-            this.textBox2.TabIndex = 1;
+            //
             // 
             // panel1
             // 
@@ -115,10 +102,6 @@
             // 
             // nmrThang
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(255, 73);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDown2.TabIndex = 7;
             // 
             // nmrNam
             // 
