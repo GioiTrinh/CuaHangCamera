@@ -8,15 +8,33 @@ namespace QLCamera
 {
     public static class Utilities
     {
-        public static readonly string PREFIX_MANCC = "NCC_";
+        public static readonly string PREFIX_MaNCC= "NCC_";
+        public static readonly string PREFIX_MaNV = "NV_";
         public static readonly string PREFIX_MASANPHAM = "SP_";
-        public static readonly int MANCC_LENGTH = 6;
+        public static readonly int MaNCC_LENGTH = 6;
+        public static readonly int MaNV_LENGTH = 6;
         public static readonly int MASP_LENGTH = 6;
+
+        public static readonly string ADMIN_LABEL = "Admin";
+        public static readonly string STAFF_LABEL = "Staff";
+    }
+
+
+    public class ComboboxItems
+    {
+        public int Id { get; set; }
+        public string Label { get; set; }
     }
 
     public enum FormMode
     {
         Them = 1,
         Sua = 2
+    }
+
+    public enum CapBacNhanVien
+    {
+        Admin = 1,
+        Staff = 2
     }
 }
