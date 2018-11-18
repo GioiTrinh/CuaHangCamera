@@ -2,32 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using DTO;
-
+using System.Windows.Forms;
 
 namespace DAO
 {
-    public class DAO_NhanVien
+    public class DAO_KhachHang
     {
         DataAdapter da;
-        public DAO_NhanVien()
+        public DAO_KhachHang()
         {
             da = new DataAdapter();
         }
-        public List<NhanVien> GetNhanViens(string key = "")
+        public List<KhachHang> GetKhachHangs(string key = "")
         {
-            string sql = "SELECT Id, MaNV, HoTenNV, Sdt, Email, DiaChi,Cmnd,Luong,CapBac  FROM NhanVien";
+            string sql = "SELECT Id, MaKH, HoTenKH, DiaChi, Sdt, Email  FROM KhachHang";
             if (!string.IsNullOrEmpty(key))
             {
-                sql += " WHERE MaNV LIKE '%" + key + "%' " +
-                    "OR HoTenNV LIKE '%" + key + "%'" +
+                sql += " WHERE MaKH LIKE '%" + key + "%' " +
+                    "OR HoTenKH LIKE '%" + key + "%'" +
                     "OR DiaChi LIKE '%" + key + "%'" +
-                    "OR Email LIKE '%" + key + "%'" +
-                    "OR Cmnd LIKE '%" + key + "%'" +
-                    "OR Sdt LIKE '%" + key + "%'";
+                    "OR Sdt LIKE '%" + key + "%'"+
+                "OR Email LIKE '%" + key + "%'";
+                    
             }
-            List<NhanVien> NhanViens = new List<NhanVien>();
+            List<KhachHang> khachHangs = new List<KhachHang>();
             try
             {
                 da.Connect();
@@ -35,67 +34,61 @@ namespace DAO
                 while (dr.Read())
                 {
 
-                    NhanViens.Add(new NhanVien
+                    khachHangs.Add(new KhachHang
                     {
                         Id = (int)dr[0],
-                        MaNV = dr[1].ToString(),
-                        HoTenNV = dr[2].ToString(),
+                        MaKH = dr[1].ToString(),
+                        HoTenKH = dr[2].ToString(),
                         DiaChi = dr[3].ToString(),
                         Sdt = dr[4].ToString(),
-                        Email = dr[5].ToString(),
-                        Cmnd = dr[6].ToString(),
-                        Luong = double.Parse(dr[7].ToString()),
-                        CapBac = int.Parse(dr[8].ToString())
+                        Email = dr[5].ToString()
+                        
                     });
                 }
                 da.Disconnet();
-                return NhanViens;
+                return khachHangs;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                return new List<NhanVien>();
+                return new List<KhachHang>();
             }
         }
 
 
-        public NhanVien GetNhanVien(int id)
+        public KhachHang GetKhachHang(int id)
         {
-            string sql = "SELECT Id, MaNV, HoTenNV, DiaChi, Sdt, Email, Cmnd, Luong, CapBac FROM NhanVien Where id = " + id;
+            string sql = "SELECT Id, MaKH, HoTenKH, DiaChi, Sdt, Email FROM KhachHang Where id = " + id;
 
-            NhanVien nhanVien = new NhanVien();
+            KhachHang khachHang = new KhachHang();
             try
             {
                 da.Connect();
                 var dr = da.ExecuteReader(sql);
                 while (dr.Read())
                 {
-                    nhanVien = new NhanVien
+                    khachHang = new KhachHang
                     {
                         Id = (int)dr[0],
-                        MaNV = dr[1].ToString(),
-                        HoTenNV = dr[2].ToString(),
+                        MaKH = dr[1].ToString(),
+                        HoTenKH = dr[2].ToString(),
                         DiaChi = dr[3].ToString(),
                         Sdt = dr[4].ToString(),
-                        Email = dr[5].ToString(),
-                        Cmnd = dr[6].ToString(),
-                        Luong = double.Parse(dr[7].ToString()),
-                        CapBac = int.Parse(dr[8].ToString())
+                        Email = dr[5].ToString()
                     };
                 }
                 da.Disconnet();
-                return nhanVien;
+                return khachHang;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
-                return nhanVien;
+                return khachHang;
             }
         }
-
-        public bool ThemNhanVien(NhanVien nv)
+        public bool ThemKhachHang(KhachHang kh)
         {
-            string sql = @"INSERT INTO NhanVien VALUES(N'" + nv.MaNV + "', N'" + nv.HoTenNV + "', N'" + nv.DiaChi + "', N'" + nv.Sdt + "', N'" + nv.Email + "', '" + nv.Cmnd + "', " + nv.CapBac + ", " + nv.Luong + ")";
+             string sql = @"INSERT INTO KhachHang VALUES( N'" + kh.MaKH + "', N'" + kh.HoTenKH + "', N'" + kh.DiaChi + "', N'" + kh.Sdt + "', N'" + kh.Email + "' )";
             try
             {
                 var result = false;
@@ -111,9 +104,9 @@ namespace DAO
                 return false;
             }
         }
-        public bool CapNhatNhanVien(NhanVien nv)
+        public bool CapNhatKhachHang(KhachHang kh)
         {
-            string sql = @"UPDATE NhanVien SET MaNV = N'" + nv.MaNV + "', HoTenNV = N'" + nv.HoTenNV + "', DiaChi = N'" + nv.DiaChi + "', Sdt = N'" + nv.Sdt + "', Email = N'" + nv.Email + "', Cmnd = N'" + nv.Cmnd +"', CapBac = N'" + nv.CapBac + "', Luong = N'" + nv.Luong + "' WHERE Id = " + nv.Id;
+            string sql = @"UPDATE KhachHang SET MaKH = N'" + kh.MaKH + "', HoTenKH = N'" + kh.HoTenKH + "', DiaChi = N'" + kh.DiaChi + "', Sdt = N'" + kh.Sdt + "', Email = N'" + kh.Email +  "' WHERE Id = " + kh.Id;
             try
             {
                 var result = false;
@@ -128,9 +121,9 @@ namespace DAO
                 return false;
             }
         }
-        public bool XoaNhanVien(int id)
+        public bool XoaKhachHang(int id)
         {
-            string sql = @"DELETE NhanVien WHERE Id = " + id;
+            string sql = @"DELETE KhachHang WHERE Id = " + id;
             try
             {
                 var result = false;
@@ -147,4 +140,5 @@ namespace DAO
         }
 
     }
+
 }
