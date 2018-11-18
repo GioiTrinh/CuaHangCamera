@@ -116,13 +116,13 @@ namespace QLCamera
         private string RenderMaNhaCungCap()
         {
             var stt = (nhaCungCaps?.Count ?? 0) + 1;
-            var curLength = stt.ToString().Length + Utilities.PREFIX_MANCC.Length;
+            var curLength = stt.ToString().Length + Utilities.PREFIX_MaNV.Length;
             string additionalZero = "";
-            for (int i = 0; i < Utilities.MANCC_LENGTH - curLength; i++)
+            for (int i = 0; i < Utilities.MaNV_LENGTH - curLength; i++)
             {
                 additionalZero += "0";
             }
-            return Utilities.PREFIX_MANCC + additionalZero + stt.ToString();
+            return Utilities.PREFIX_MaNV + additionalZero + stt.ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

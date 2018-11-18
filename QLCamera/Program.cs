@@ -17,9 +17,9 @@ namespace QLCamera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmQLNCC());
+            Application.Run(new FrmNhanVien());
             if(_isSignedIn)
-                Application.Run(new FrmQLKH());
+                Application.Run(new FrmNhanVien());
         }
     }
 }
