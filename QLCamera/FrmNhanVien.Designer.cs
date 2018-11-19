@@ -32,7 +32,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dgvQLNV = new System.Windows.Forms.DataGridView();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.nmrLuong = new System.Windows.Forms.NumericUpDown();
+            this.cbCapBac = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCmnd = new System.Windows.Forms.TextBox();
@@ -49,31 +53,30 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenNV = new System.Windows.Forms.TextBox();
-            this.cbCapBac = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.nmrLuong = new System.Windows.Forms.NumericUpDown();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.nhanVienBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoTenNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaChiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sdtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmndDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capBacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenCapBacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQLNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrLuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(422, 20);
+            this.label6.Location = new System.Drawing.Point(625, 20);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 17);
@@ -82,7 +85,7 @@
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(494, 20);
+            this.txtTimKiem.Location = new System.Drawing.Point(697, 20);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(169, 20);
@@ -91,29 +94,31 @@
             // 
             // dgvQLNV
             // 
-            this.dgvQLNV.AllowUserToAddRows = false;
             this.dgvQLNV.AllowUserToDeleteRows = false;
             this.dgvQLNV.AutoGenerateColumns = false;
             this.dgvQLNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQLNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.maNVDataGridViewTextBoxColumn,
-            this.hoTenNVDataGridViewTextBoxColumn,
+            this.MaNV,
+            this.HoTenNV,
+            this.Cmnd,
+            this.Luong,
+            this.TenCapBac,
             this.diaChiDataGridViewTextBoxColumn,
             this.sdtDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.cmndDataGridViewTextBoxColumn,
-            this.luongDataGridViewTextBoxColumn,
-            this.capBacDataGridViewTextBoxColumn,
-            this.tenCapBacDataGridViewTextBoxColumn});
-            this.dgvQLNV.DataSource = this.nhanVienBindingSource;
-            this.dgvQLNV.Location = new System.Drawing.Point(2, 65);
+            this.emailDataGridViewTextBoxColumn});
+            this.dgvQLNV.DataSource = this.nhanVienBindingSource2;
+            this.dgvQLNV.Location = new System.Drawing.Point(12, 56);
             this.dgvQLNV.Name = "dgvQLNV";
             this.dgvQLNV.ReadOnly = true;
             this.dgvQLNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvQLNV.Size = new System.Drawing.Size(652, 382);
+            this.dgvQLNV.Size = new System.Drawing.Size(854, 382);
             this.dgvQLNV.TabIndex = 15;
             this.dgvQLNV.SelectionChanged += new System.EventHandler(this.dgvQLNV_SelectionChanged);
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataSource = typeof(DTO.KhachHang);
             // 
             // panel1
             // 
@@ -136,10 +141,38 @@
             this.panel1.Controls.Add(this.txtSDT);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtTenNV);
-            this.panel1.Location = new System.Drawing.Point(670, 20);
+            this.panel1.Location = new System.Drawing.Point(872, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(290, 413);
             this.panel1.TabIndex = 14;
+            // 
+            // nmrLuong
+            // 
+            this.nmrLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nmrLuong.Location = new System.Drawing.Point(112, 208);
+            this.nmrLuong.Name = "nmrLuong";
+            this.nmrLuong.Size = new System.Drawing.Size(157, 23);
+            this.nmrLuong.TabIndex = 18;
+            // 
+            // cbCapBac
+            // 
+            this.cbCapBac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCapBac.FormattingEnabled = true;
+            this.cbCapBac.Location = new System.Drawing.Point(112, 235);
+            this.cbCapBac.Name = "cbCapBac";
+            this.cbCapBac.Size = new System.Drawing.Size(157, 21);
+            this.cbCapBac.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(53, 239);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Lương";
             // 
             // label8
             // 
@@ -232,6 +265,7 @@
             this.btXoa.TabIndex = 8;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // txtMaNV
             // 
@@ -299,37 +333,13 @@
             this.txtTenNV.Size = new System.Drawing.Size(157, 20);
             this.txtTenNV.TabIndex = 3;
             // 
-            // cbCapBac
+            // nhanVienBindingSource1
             // 
-            this.cbCapBac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCapBac.FormattingEnabled = true;
-            this.cbCapBac.Location = new System.Drawing.Point(112, 235);
-            this.cbCapBac.Name = "cbCapBac";
-            this.cbCapBac.Size = new System.Drawing.Size(157, 21);
-            this.cbCapBac.TabIndex = 17;
+            this.nhanVienBindingSource1.DataSource = typeof(DTO.NhanVien);
             // 
-            // label9
+            // nhanVienBindingSource2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(53, 239);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Lương";
-            // 
-            // nmrLuong
-            // 
-            this.nmrLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmrLuong.Location = new System.Drawing.Point(112, 208);
-            this.nmrLuong.Name = "nmrLuong";
-            this.nmrLuong.Size = new System.Drawing.Size(157, 23);
-            this.nmrLuong.TabIndex = 18;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataSource = typeof(DTO.NhanVien);
+            this.nhanVienBindingSource2.DataSource = typeof(DTO.NhanVien);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -339,19 +349,40 @@
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
-            // maNVDataGridViewTextBoxColumn
+            // MaNV
             // 
-            this.maNVDataGridViewTextBoxColumn.DataPropertyName = "MaNV";
-            this.maNVDataGridViewTextBoxColumn.HeaderText = "Mã nhân viên";
-            this.maNVDataGridViewTextBoxColumn.Name = "maNVDataGridViewTextBoxColumn";
-            this.maNVDataGridViewTextBoxColumn.ReadOnly = true;
+            this.MaNV.DataPropertyName = "MaNV";
+            this.MaNV.HeaderText = "Mã  nhân viên";
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
             // 
-            // hoTenNVDataGridViewTextBoxColumn
+            // HoTenNV
             // 
-            this.hoTenNVDataGridViewTextBoxColumn.DataPropertyName = "HoTenNV";
-            this.hoTenNVDataGridViewTextBoxColumn.HeaderText = "Tên nhân viên";
-            this.hoTenNVDataGridViewTextBoxColumn.Name = "hoTenNVDataGridViewTextBoxColumn";
-            this.hoTenNVDataGridViewTextBoxColumn.ReadOnly = true;
+            this.HoTenNV.DataPropertyName = "HoTenNV";
+            this.HoTenNV.HeaderText = "Tên nhân viên";
+            this.HoTenNV.Name = "HoTenNV";
+            this.HoTenNV.ReadOnly = true;
+            // 
+            // Cmnd
+            // 
+            this.Cmnd.DataPropertyName = "Cmnd";
+            this.Cmnd.HeaderText = "CMND";
+            this.Cmnd.Name = "Cmnd";
+            this.Cmnd.ReadOnly = true;
+            // 
+            // Luong
+            // 
+            this.Luong.DataPropertyName = "Luong";
+            this.Luong.HeaderText = "Lương";
+            this.Luong.Name = "Luong";
+            this.Luong.ReadOnly = true;
+            // 
+            // TenCapBac
+            // 
+            this.TenCapBac.DataPropertyName = "TenCapBac";
+            this.TenCapBac.HeaderText = "Tên cấp bậc";
+            this.TenCapBac.Name = "TenCapBac";
+            this.TenCapBac.ReadOnly = true;
             // 
             // diaChiDataGridViewTextBoxColumn
             // 
@@ -374,40 +405,11 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cmndDataGridViewTextBoxColumn
-            // 
-            this.cmndDataGridViewTextBoxColumn.DataPropertyName = "Cmnd";
-            this.cmndDataGridViewTextBoxColumn.HeaderText = "CMND";
-            this.cmndDataGridViewTextBoxColumn.Name = "cmndDataGridViewTextBoxColumn";
-            this.cmndDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // luongDataGridViewTextBoxColumn
-            // 
-            this.luongDataGridViewTextBoxColumn.DataPropertyName = "Luong";
-            this.luongDataGridViewTextBoxColumn.HeaderText = "Lương";
-            this.luongDataGridViewTextBoxColumn.Name = "luongDataGridViewTextBoxColumn";
-            this.luongDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // capBacDataGridViewTextBoxColumn
-            // 
-            this.capBacDataGridViewTextBoxColumn.DataPropertyName = "CapBac";
-            this.capBacDataGridViewTextBoxColumn.HeaderText = "Cấp Bậc";
-            this.capBacDataGridViewTextBoxColumn.Name = "capBacDataGridViewTextBoxColumn";
-            this.capBacDataGridViewTextBoxColumn.ReadOnly = true;
-            this.capBacDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tenCapBacDataGridViewTextBoxColumn
-            // 
-            this.tenCapBacDataGridViewTextBoxColumn.DataPropertyName = "TenCapBac";
-            this.tenCapBacDataGridViewTextBoxColumn.HeaderText = "Cấp Bậc";
-            this.tenCapBacDataGridViewTextBoxColumn.Name = "tenCapBacDataGridViewTextBoxColumn";
-            this.tenCapBacDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 450);
+            this.ClientSize = new System.Drawing.Size(1172, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.dgvQLNV);
@@ -416,10 +418,12 @@
             this.Text = "FrmNhanVien";
             this.Load += new System.EventHandler(this.FrmNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvQLNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrLuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,15 +455,22 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown nmrLuong;
         private System.Windows.Forms.BindingSource nhanVienBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maNVDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoTenNVDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn diaChiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmndDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn luongDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn capBacDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenCapBacDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cmnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenCapBac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diaChiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource2;
     }
 }

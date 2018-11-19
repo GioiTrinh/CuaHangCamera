@@ -27,11 +27,7 @@ namespace QLCamera
         private void btThem_Click(object sender, EventArgs e)
         {
             txtMaNV.Text = this.RenderMaNhanVien();
-
-
             this.NewNV();
-
-
         }
         
         private void ThemNhanVien(NhanVien nhanVien)
@@ -75,6 +71,7 @@ namespace QLCamera
                 MessageBox.Show("Xóa thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private string RenderMaNhanVien()
         {
             var stt = (nhanViens?.Count ?? 0) + 1;
@@ -116,14 +113,11 @@ namespace QLCamera
                         Sdt = txtSDT.Text.Trim(),
                         Cmnd = txtCmnd.Text.Trim(),
                         Luong = double.Parse(nmrLuong.Value.ToString()),
-                        CapBac = int.Parse(cbCapBac.SelectedValue.ToString())
-                        
+                        CapBac = int.Parse(cbCapBac.SelectedValue.ToString())                        
                     };
-
                     this.ThemNhanVien(nv);
                     break;
                 case FormMode.Sua:
-
                     nv = this.bus.GetNhanVien(this.currentId);
 
                     nv.MaNV = txtMaNV.Text.Trim();
@@ -170,7 +164,6 @@ namespace QLCamera
                     this.cbCapBac.SelectedValue = nv.CapBac;
                     nmrLuong.Value = decimal.Parse(nv.Luong.ToString());
                 }
-
                 this.formMode = FormMode.Sua;
             }
         }
@@ -200,6 +193,19 @@ namespace QLCamera
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
             this.LoadData(this.txtTimKiem.Text.Trim());
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            if (this.bus.XoaNhanVien(this.currentId))
+            {
+                MessageBox.Show("Xóa thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
