@@ -10,8 +10,11 @@ namespace QLCamera
     {
         public static readonly string PREFIX_MANCC = "NCC_";
         public static readonly string PREFIX_MASANPHAM = "SP_";
+        public static readonly string PREFIX_MAKHO = "KHO_";
         public static readonly int MANCC_LENGTH = 6;
         public static readonly int MASP_LENGTH = 6;
+        public static readonly int MAKHO_LENGTH = 6;
+        public static int currentUserId = 0;
     }
 
     public enum FormMode

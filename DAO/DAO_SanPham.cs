@@ -15,10 +15,10 @@ namespace DAO
 
         public List<SanPham> GetSanPhams(string key = "")
         {
-            string sql = "SELECT Id, MaSP, TenSP, BaoHanh, Gia FROM SanPham";
-            if (string.IsNullOrEmpty(key))
+            string sql = "SELECT Id, MaSP, TenSP, NamBaoHanh, ThangBaoHanh, Gia, HienCo FROM SanPham";
+            if (!string.IsNullOrEmpty(key))
             {
-                sql += " WHERE MaSp LIKE " + key + " OR TenSP LIKE " + key;
+                sql += " WHERE MaSp LIKE '%" + key + "%' OR TenSP LIKE '%" + key + "%'";
             }
             List<SanPham> sanPhams = new List<SanPham>();
             try
@@ -27,18 +27,18 @@ namespace DAO
                 var dr = da.ExecuteReader(sql);
                 while (dr.Read())
                 {
-                    DateTimeOffset? baoHanh;
-                    if (dr[3] == null)
-                        baoHanh = null;
-                    else
-                        baoHanh = (DateTimeOffset)dr[3];
+                    int nam = (int)dr[3];
+                    int thang = (int)dr[4];
                     sanPhams.Add(new SanPham
                     {
                         Id = (int)dr[0],
                         MaSp = dr[1].ToString(),
                         TenSp = dr[2].ToString(),
-                        BaoHanh = baoHanh,
-                        Gia = double.Parse(dr[4].ToString())
+                        NamBaoHanh = nam,
+                        ThangBaoHanh = thang,
+                        Gia = double.Parse(dr[5].ToString()),
+                        BaoHanhString = nam == 0 && thang == 0 ?  "Không bảo hành" : ( nam != 0 ? nam + " năm" : "") +  (thang != 0 ? " " + thang + " tháng" :  ""),
+                        HienCo = int.Parse(dr[6].ToString()),
                     });
                 }
                 da.Disconnet();
@@ -51,9 +51,27 @@ namespace DAO
             }
         }
 
+        public bool CheckTonTaiSanPhamByTen(string name)
+        {
+            string sql = "SELECT Id FROM SanPham WHERE TenSP = N'" + name + "'";
+            bool check = false;
+            try
+            {
+                da.Connect();
+                var dr = da.ExecuteReader(sql);
+                check = dr.HasRows;
+                da.Disconnet();
+                return check;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
         public SanPham GetSanPham(int id)
         {
-            string sql = "SELECT Id, MaSP, TenSP, BaoHanh, Gia FROM SanPham WHERE Id = " + id;
+            string sql = "SELECT Id, MaSP, TenSP, NamBaoHanh, ThangBaoHanh, Gia, HienCo FROM SanPham WHERE Id = " + id;
             SanPham sanPham = new SanPham();
             try
             {
@@ -61,18 +79,15 @@ namespace DAO
                 var dr = da.ExecuteReader(sql);
                 while (dr.Read())
                 {
-                    DateTimeOffset? baoHanh;
-                    if (dr[3] == null)
-                        baoHanh = null;
-                    else
-                        baoHanh = (DateTimeOffset)dr[3];
                     sanPham = new SanPham
                     {
                         Id = (int)dr[0],
                         MaSp = dr[1].ToString(),
                         TenSp = dr[2].ToString(),
-                        BaoHanh = baoHanh,
-                        Gia = double.Parse(dr[4].ToString())
+                        NamBaoHanh = (int)dr[3],
+                        ThangBaoHanh = (int)dr[4],
+                        Gia = double.Parse(dr[5].ToString()),
+                        HienCo = int.Parse(dr[6].ToString()),
                     };
                 }
                 da.Disconnet();
@@ -87,12 +102,12 @@ namespace DAO
 
         public bool ThemSanPham(SanPham sp)
         {
-            string sql = @"INSERT INTO SanPham VALUES(N'" + sp.MaSp + "', N'" + sp.TenSp + "', " + sp.BaoHanh + ", Gia = " + sp.Gia + ")";
+            string sql = @"INSERT INTO SanPham VALUES(N'" + sp.MaSp + "', N'" + sp.TenSp + "', " + sp.NamBaoHanh + ", " + sp.ThangBaoHanh + ", " + sp.Gia + ", 0)";
             try
             {
                 var result = false;
                 da.Connect();
-                result =  da.ExecuteNonQuery(sql) > 0;
+                result = da.ExecuteNonQuery(sql) > 0;
                 da.Disconnet();
                 return result;
             }
@@ -106,7 +121,7 @@ namespace DAO
 
         public bool CapNhatSanPham(SanPham sp)
         {
-            string sql = @"UPDATE SanPham SET MaSp = N'" + sp.MaSp + "', TenSp = N'" + sp.TenSp + "', BaoHanh = " + sp.BaoHanh + ", Gia = " + sp.Gia + " WHERE Id = " + sp.Id;
+            string sql = @"UPDATE SanPham SET MaSp = N'" + sp.MaSp + "', TenSp = N'" + sp.TenSp + "', NamBaoHanh = " + sp.NamBaoHanh + ", ThangBaoHanh = " + sp.ThangBaoHanh + ", Gia = " + sp.Gia + " WHERE Id = " + sp.Id;
             try
             {
                 var result = false;
@@ -139,5 +154,41 @@ namespace DAO
                 return false;
             }
         }
+
+        public int KiemTraSoLuongHangHienCo(int id)
+        {
+            string sql = @"SELECT HienCo FROM SanPham WHERE Id = " + id;
+            try
+            {
+                var result = 0;
+                da.Connect();
+                result = int.Parse(da.ExecuteScalar(sql).ToString());
+                da.Disconnet();
+                return result;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return 0;
+            }
+        }
+
+        public bool CapNhatSoLuong(int id, int soLuong)
+        {
+            string sql = @"Update SanPham SET HienCo = " + soLuong + "  WHERE Id = " + id;
+            try
+            {
+                var result = false;
+                da.Connect();
+                result = da.ExecuteNonQuery(sql) > 0;
+                da.Disconnet();
+                return result;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        } 
     }
 }
