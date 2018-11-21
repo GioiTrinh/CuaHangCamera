@@ -112,7 +112,7 @@ namespace QLCamera
                         Email = txtEmail.Text.Trim(),
                         Sdt = txtSDT.Text.Trim(),
                         Cmnd = txtCmnd.Text.Trim(),
-                        Luong = double.Parse(nmrLuong.Value.ToString()),
+                        Luong = float.Parse(nmrLuong.Value.ToString()),
                         CapBac = int.Parse(cbCapBac.SelectedValue.ToString())                        
                     };
                     this.ThemNhanVien(nv);
@@ -126,7 +126,7 @@ namespace QLCamera
                     nv.Email = txtEmail.Text.Trim();
                     nv.Sdt = txtSDT.Text.Trim();
                     nv.Cmnd = txtCmnd.Text.Trim();
-                    nv.Luong = double.Parse(nmrLuong.Value.ToString());
+                    nv.Luong = float.Parse(nmrLuong.Value.ToString());
                     nv.CapBac = int.Parse(cbCapBac.SelectedValue.ToString());
                     this.CapNhatNhanVien(nv);
                     break;

@@ -44,7 +44,7 @@ namespace DAO
                         Sdt = dr[4].ToString(),
                         Email = dr[5].ToString(),
                         Cmnd = dr[6].ToString(),
-                        Luong = double.Parse(dr[7].ToString()),
+                        Luong = float.Parse(dr[7].ToString()),
                         CapBac = int.Parse(dr[8].ToString())
                     });
                 }
@@ -79,7 +79,7 @@ namespace DAO
                         Sdt = dr[4].ToString(),
                         Email = dr[5].ToString(),
                         Cmnd = dr[6].ToString(),
-                        Luong = double.Parse(dr[7].ToString()),
+                        Luong = float.Parse(dr[7].ToString()),
                         CapBac = int.Parse(dr[8].ToString())
                     };
                 }
