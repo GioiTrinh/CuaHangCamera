@@ -139,6 +139,53 @@ namespace DAO
             }
         }
 
+
+        public bool BanHang(int nhanVienId, int khachHangId, List<ChiTietHoaDon> chiTietHoaDons)
+        {
+
+            if (chiTietHoaDons.Any())
+            {
+                string sql = @"INSERT INTO HoaDon VALUES (" + nhanVienId + ", " + khachHangId + ", '" + DateTime.Now + "', 0 )";
+                try
+                {
+                    var result = false;
+                    da.Connect();
+                    result = da.ExecuteNonQuery(sql) > 0;
+                    if (result)
+                    {
+                        var sqlGetId = "SELECT TOP 1 Id FROM HoaDon ORDER BY Id DESC";
+                        var val = da.ExecuteScalar(sqlGetId).ToString();
+                        if (int.TryParse(val, out int chiTietHoaDonId))
+                        {
+                            double tongTien = 0;
+                            foreach (var chiTietHoaDon in chiTietHoaDons)
+                            {
+                                sql = @"INSERT INTO ChiTietHoaDon VALUES (" + chiTietHoaDonId + ", " + chiTietHoaDon.SanPhamId + ", " + chiTietHoaDon.SoLuong + ")";
+                                result = da.ExecuteNonQuery(sql) > 0;
+                                sql = @"SELECT Gia FROM SanPham WHERE Id = " + chiTietHoaDon.SanPhamId;
+                                double gia = double.Parse(da.ExecuteScalar(sql).ToString());
+                                tongTien += gia * chiTietHoaDon.SoLuong;
+                            }
+
+                            sql = @"UPDATE HoaDon SET TongTien = " + tongTien + " WHERE Id = " + chiTietHoaDonId;
+                            result = da.ExecuteNonQuery(sql) > 0;
+                        }
+                    }
+
+                    da.Disconnet();
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
 }

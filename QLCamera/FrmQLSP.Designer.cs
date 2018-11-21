@@ -49,7 +49,6 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maSpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenSpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baoHanhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaoHanhString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sanPhamBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -148,6 +147,11 @@
             0,
             0});
             this.nmrGia.Location = new System.Drawing.Point(210, 124);
+            this.nmrGia.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.nmrGia.Name = "nmrGia";
             this.nmrGia.Size = new System.Drawing.Size(164, 26);
             this.nmrGia.TabIndex = 3;
@@ -264,7 +268,6 @@
             this.idDataGridViewTextBoxColumn,
             this.maSpDataGridViewTextBoxColumn,
             this.tenSpDataGridViewTextBoxColumn,
-            this.baoHanhDataGridViewTextBoxColumn,
             this.BaoHanhString,
             this.giaDataGridViewTextBoxColumn});
             this.dgvQLSP.DataSource = this.sanPhamBindingSource;
@@ -301,15 +304,6 @@
             this.tenSpDataGridViewTextBoxColumn.Name = "tenSpDataGridViewTextBoxColumn";
             this.tenSpDataGridViewTextBoxColumn.ReadOnly = true;
             this.tenSpDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // baoHanhDataGridViewTextBoxColumn
-            // 
-            this.baoHanhDataGridViewTextBoxColumn.DataPropertyName = "BaoHanh";
-            this.baoHanhDataGridViewTextBoxColumn.HeaderText = "Bảo Hành";
-            this.baoHanhDataGridViewTextBoxColumn.Name = "baoHanhDataGridViewTextBoxColumn";
-            this.baoHanhDataGridViewTextBoxColumn.ReadOnly = true;
-            this.baoHanhDataGridViewTextBoxColumn.Visible = false;
-            this.baoHanhDataGridViewTextBoxColumn.Width = 130;
             // 
             // BaoHanhString
             // 

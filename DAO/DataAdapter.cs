@@ -51,7 +51,15 @@ namespace DAO
 
         public DataAdapter()
         {
-            cnstr = ConfigurationManager.ConnectionStrings["cnstr"].ConnectionString;
+            try
+            {
+
+                cnstr = ConfigurationManager.ConnectionStrings["cnstr"].ConnectionString;
+            }
+            catch (Exception)
+            {
+                cnstr = @"Data Source=DESKTOP-742LRIC\SZ19;Initial Catalog=QLCuaHangCamera;Integrated Security=True";
+            }
             cn = new SqlConnection(cnstr);
         }
         /// <summary>
