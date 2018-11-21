@@ -58,7 +58,7 @@ namespace DAO
             }
             catch (Exception)
             {
-                cnstr = @"Data Source=DESKTOP-742LRIC\SZ19;Initial Catalog=QLCuaHangCamera;Integrated Security=True";
+                cnstr = @"Data Source=DESKTOP-57UROHS\GIOITRINH;Initial Catalog=QLCuaHangCamera;Integrated Security=True";
             }
             cn = new SqlConnection(cnstr);
         }
@@ -66,7 +66,7 @@ namespace DAO
         /// thực hiện câu lệnh truy vấn bảng dữ liệu
         /// </summary>
         /// <param name="sql">câu lệnh SQL</param>
-        /// <returns>SqlDataReader</returns>
+        /// <returns>DataAdapter </returns>
         public SqlDataReader ExecuteReader(string sql)
         {
             SqlCommand cmd = new SqlCommand(sql, cn);

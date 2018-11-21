@@ -48,6 +48,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTest_KhachHang.cs" />
+    <Compile Include="UnitTest_NhanVien.cs" />
     <Compile Include="UnitTest_SanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
