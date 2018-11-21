@@ -39,5 +39,11 @@ namespace BUS
         {
             return da.XoaKhachHang(id);
         }
+
+
+        public bool BanHang(int nhanVienId, int khachHangId, List<ChiTietHoaDon> chiTietHoaDons)
+        {
+            return da.BanHang(nhanVienId, khachHangId, chiTietHoaDons);
+        }
     }
 }
