@@ -34,7 +34,6 @@
             this.mnsQLKH = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsQLNV = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsQLNCC = new System.Windows.Forms.ToolStripMenuItem();
-            this.cấpQuyềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsQLKho = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +46,6 @@
             this.mnsQLKH,
             this.mnsQLNV,
             this.mnsQLNCC,
-            this.cấpQuyềnToolStripMenuItem,
             this.mnsQLKho});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -89,12 +87,6 @@
             this.mnsQLNCC.Text = "Nhà cung cấp";
             this.mnsQLNCC.Click += new System.EventHandler(this.mnsQLNCC_Click);
             // 
-            // cấpQuyềnToolStripMenuItem
-            // 
-            this.cấpQuyềnToolStripMenuItem.Name = "cấpQuyềnToolStripMenuItem";
-            this.cấpQuyềnToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.cấpQuyềnToolStripMenuItem.Text = "Cấp quyền";
-            // 
             // mnsQLKho
             // 
             this.mnsQLKho.Name = "mnsQLKho";
@@ -134,7 +126,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnsQLKH;
         private System.Windows.Forms.ToolStripMenuItem mnsQLNV;
         private System.Windows.Forms.ToolStripMenuItem mnsQLNCC;
-        private System.Windows.Forms.ToolStripMenuItem cấpQuyềnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnsQLKho;
     }
 }
