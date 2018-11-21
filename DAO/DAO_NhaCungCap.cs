@@ -143,7 +143,7 @@ namespace DAO
         {
             if (chiTietHoaDonMuas.Any())
             {
-                string sql = @"INSERT INTO HoaDonMua VALUES (" + nhanVienId + ", " + nccId + DateTime.Now + ", " + null + ")";
+                string sql = @"INSERT INTO HoaDonMua VALUES (" + nhanVienId + ", " + nccId + ", '" + DateTime.Now + "', 0 )";
                 try
                 {
                     var result = false;
@@ -151,7 +151,7 @@ namespace DAO
                     result = da.ExecuteNonQuery(sql) > 0;
                     if (result)
                     {
-                        var sqlGetId = "SELECT TOP 1 Id FROM HoaDonMua ORDER BY DESC";
+                        var sqlGetId = "SELECT TOP 1 Id FROM HoaDonMua ORDER BY Id DESC";
                         var val = da.ExecuteScalar(sqlGetId).ToString();
                         int chiTietHoaDonMuaId;
                         if (int.TryParse(val, out chiTietHoaDonMuaId)) {
@@ -175,7 +175,6 @@ namespace DAO
                 }
                 catch (Exception e)
                 {
-
                     MessageBox.Show(e.Message);
                     return false;
                 }

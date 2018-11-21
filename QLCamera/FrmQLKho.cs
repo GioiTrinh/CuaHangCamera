@@ -6,60 +6,60 @@ using System.Windows.Forms;
 
 namespace QLCamera
 {
-    public partial class FrmQLSP : Form
+    public partial class FrmQLKho : Form
     {
-        BUS_SanPham bus;
+        BUS_Kho bus;
         private FormMode formMode = FormMode.Them;
 
-        SanPham sanPhamEdit = new SanPham();
-        private List<SanPham> sanPhams = new List<SanPham>();
-        public FrmQLSP()
+        Kho khoEdit = new Kho();
+        private List<Kho> khos = new List<Kho>();
+        public FrmQLKho()
         {
-            bus = new BUS_SanPham();
+            bus = new BUS_Kho();
             InitializeComponent();
         }
         
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            this.LoadSanPham(this.txtTimKiem.Text);
+            this.LoadKho(this.txtTimKiem.Text);
         }
 
         private void FrmQLSP_Load(object sender, EventArgs e)
         {
-            this.txtMaSanPham.Text = this.RenderMaSanPham();
-            this.LoadSanPham();
+            this.txtMaKho.Text = this.RenderMaKho();
+            this.LoadKho();
         }
         
-        private void LoadSanPham(string key = "")
+        private void LoadKho(string key = "")
         {
             key = key.Trim().ToLower();
-            this.sanPhams = this.bus.GetSanPhams(key);
-            this.dgvQLSP.DataSource = this.sanPhams;
+            this.khos = this.bus.GetKhos(key);
+            this.dgvQLSP.DataSource = this.khos;
         }
         
 
-        private void Luu(FormMode mode, SanPham sp)
+        private void Luu(FormMode mode, Kho sp)
         {
             switch (mode)
             {
                 case FormMode.Them:
-                    if (this.bus.CheckTonTaiSanPhamByTen(txtTenSanPham.Text))
+                    if (this.bus.CheckTonTaiKhoByTen(txtTenKho.Text))
                     {
                         MessageBox.Show("Tên sản phẩm đã tồn tại.\n Vui lòng sử dụng tên khác", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (this.bus.ThemSanPham(sp))
+                    if (this.bus.ThemKho(sp))
                         MessageBox.Show("Thêm thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Thêm thất bại.\nVui lòng thử lại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.LoadSanPham();
+                    this.LoadKho();
                     break;
                 case FormMode.Sua: 
-                    if(this.bus.CapNhatSanPham(sp))
+                    if(this.bus.CapNhatKho(sp))
                         MessageBox.Show("Cập nhật thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Cập nhật thất bại.\nVui lòng thử lại", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.LoadSanPham();
+                    this.LoadKho();
                     break;
                 default:
                     MessageBox.Show("Vui lòng kiểm tra lại", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -70,33 +70,30 @@ namespace QLCamera
         private void btnThem_Click(object sender, EventArgs e)
         {
             this.formMode = FormMode.Them;
-            this.txtMaSanPham.Text = this.RenderMaSanPham();
+            this.txtMaKho.Text = this.RenderMaKho();
             this.ResetForm();
         }
 
         private void btLuu_Click(object sender, EventArgs e)
         {
-            this.sanPhamEdit = new SanPham()
+            this.khoEdit = new Kho()
             {
-                Id = this.sanPhamEdit.Id,
-                MaSp = this.txtMaSanPham.Text.Trim(),
-                TenSp = this.txtTenSanPham.Text.Trim(),
-                Gia = double.Parse(this.nmrGia.Value.ToString()),
-                NamBaoHanh = (int)nmrNam.Value,
-                ThangBaoHanh = (int)nmrThang.Value,
+                Id = this.khoEdit.Id,
+                MaKho = this.txtMaKho.Text.Trim(),
+                TenKho = this.txtTenKho.Text.Trim()
             };
-            this.Luu(this.formMode, sanPhamEdit);
+            this.Luu(this.formMode, khoEdit);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(this.sanPhamEdit != null)
+            if(this.khoEdit != null)
             {
-                if (this.bus.XoaSanPham(this.sanPhamEdit.Id))
+                if (this.bus.XoaKho(this.khoEdit.Id))
                 {
                     MessageBox.Show("Xóa thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.LoadSanPham();
-                    this.sanPhamEdit = new SanPham();
+                    this.LoadKho();
+                    this.khoEdit = new Kho();
                     this.Binding();
                 }
                 else {
@@ -105,21 +102,16 @@ namespace QLCamera
             }
         }
 
-        private string RenderMaSanPham()
+        private string RenderMaKho()
         {
-            var stt = ((sanPhams?.Count ?? 0) + 1);
-            var curLength = Utilities.PREFIX_MASANPHAM.Length + stt.ToString().Length;
+            var stt = ((khos?.Count ?? 0) + 1);
+            var curLength = Utilities.PREFIX_MAKHO.Length + stt.ToString().Length;
             string additionalZero = "";
-            for (int i = 0; i < Utilities.MASP_LENGTH - curLength; i++)
+            for (int i = 0; i < Utilities.MAKHO_LENGTH - curLength; i++)
             {
                 additionalZero += "0";
             }
-            return Utilities.PREFIX_MASANPHAM + additionalZero + stt.ToString();
-        }
-
-        private void nmrThang_ValueChanged(object sender, EventArgs e)
-        {
-
+            return Utilities.PREFIX_MAKHO + additionalZero + stt.ToString();
         }
 
         private void dgvQLSP_SelectionChanged(object sender, EventArgs e)
@@ -129,27 +121,20 @@ namespace QLCamera
                 this.formMode = FormMode.Sua;
                 var selected = dgvQLSP.SelectedRows[0];
                 int.TryParse(selected.Cells[0].Value.ToString(), out int id);
-                this.sanPhamEdit = this.bus.GetSanPham(id);
+                this.khoEdit = this.bus.GetKho(id);
                 this.Binding();
             }
         }
 
         private void Binding()
         {
-            this.txtMaSanPham.Text = this.sanPhamEdit.MaSp;
-            this.txtTenSanPham.Text = this.sanPhamEdit.TenSp;
-
-            this.nmrNam.Value = this.sanPhamEdit.NamBaoHanh; 
-            this.nmrThang.Value = this.sanPhamEdit.ThangBaoHanh; 
-            this.nmrGia.Value = decimal.Parse(this.sanPhamEdit.Gia.ToString());
+            this.txtMaKho.Text = this.khoEdit.MaKho;
+            this.txtTenKho.Text = this.khoEdit.TenKho;
         }
 
         private void ResetForm()
         {
-            txtTenSanPham.Text = "";
-            nmrGia.Value = 0;
-            nmrNam.Value = 0;
-            nmrThang.Value = 0;
+            txtTenKho.Text = "";
         }
     }
 }

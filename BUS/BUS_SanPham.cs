@@ -35,5 +35,21 @@ namespace BUS
         {
             return da.XoaSanPham(id);
         }
+
+
+        public bool CheckTonTaiSanPhamByTen(string name)
+        {
+            return da.CheckTonTaiSanPhamByTen(name);
+        }
+
+        public int KiemTraSoLuongHangHienCo(int id)
+        {
+            return da.KiemTraSoLuongHangHienCo(id);
+        }
+        
+        public bool CapNhatSoLuong(int id, int soLuong)
+        {
+            return da.CapNhatSoLuong(id, soLuong);
+        }
     }
 }

@@ -76,6 +76,12 @@
     <Compile Include="FrmNhapHangTuNCC.Designer.cs">
       <DependentUpon>FrmNhapHangTuNCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQLKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQLKho.Designer.cs">
+      <DependentUpon>FrmQLKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <EmbeddedResource Include="FrmNhapHangTuNCC.resx">
       <DependentUpon>FrmNhapHangTuNCC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmQLKho.resx">
+      <DependentUpon>FrmQLKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQLSP.resx">
       <DependentUpon>FrmQLSP.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,7 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\DTO.ChiTietHoaDonMua.datasource" />
     <None Include="Properties\DataSources\DTO.KhachHang.datasource" />
+    <None Include="Properties\DataSources\DTO.Kho.datasource" />
     <None Include="Properties\DataSources\DTO.NhaCungCap.datasource" />
     <None Include="Properties\DataSources\DTO.NhanVien.datasource" />
     <None Include="Properties\DataSources\DTO.SanPham.datasource" />
