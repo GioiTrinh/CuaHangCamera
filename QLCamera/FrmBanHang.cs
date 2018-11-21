@@ -124,6 +124,18 @@ namespace QLCamera
                             MessageBox.Show("Lỗi trong quá trình cập nhật thêm số lượng sản phẩm.\nVui lòng thử lại", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             tenSanPhamCapNhatLois.Add(x.TenSanPham);
                         }
+
+                        if (!sp.ThemBaoHanh(new ThongTinBaoHanh()
+                        {
+                            NhanVienId = Utilities.currentUserId,
+                            SanPhamId = x.SanPhamId,
+                            HoaDonId = this.bus.GetLastHoaDonId(),
+                            ThoiGian = DateTime.Now,
+                            LanThu = 1
+                        }))
+                        {
+                            MessageBox.Show("Lỗi trong quá trình cập nhật bảo hành.\nVui lòng thử lại", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     });
 
                     MessageBox.Show("Thêm hóa đơn thành công thành công.\n" + 

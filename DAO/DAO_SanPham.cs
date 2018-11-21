@@ -189,6 +189,44 @@ namespace DAO
                 MessageBox.Show(e.Message);
                 return false;
             }
-        } 
+        }
+
+        public bool ThemBaoHanh(ThongTinBaoHanh baoHanh)
+        {
+            string sql = @"INSERT INTO ThongTinBaoHanh VALUES (N'" + baoHanh.HoaDonId + "', N'" + baoHanh.SanPhamId + "', " + baoHanh.NhanVienId + ", N'" + baoHanh.ThoiGian + "', " + baoHanh.LanThu + ")";
+            try
+            {
+                var result = false;
+                da.Connect();
+                result = da.ExecuteNonQuery(sql) > 0;
+                da.Disconnet();
+                return result;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
+        public int GetLanBaoHanh(int hoaDonId, int sanPhamId)
+        {
+            string sql = @"SELECT COUNT(Id) FROM ThongTinBaoHanh WHERE KhachHangId = " + hoaDonId + " AND SanPhamId = " + sanPhamId;
+            try
+            {
+                var result = -1;
+                da.Connect();
+                result = (int)da.ExecuteScalar(sql);
+                da.Disconnet();
+                return result;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return -1;
+            }
+        }
     }
 }

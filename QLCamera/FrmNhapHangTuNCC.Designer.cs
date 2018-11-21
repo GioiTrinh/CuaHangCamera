@@ -35,16 +35,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.dgvSanPhamDat = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hoaDonIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sanPhamIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soLuongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chiTietHoaDonMuaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnLuu = new System.Windows.Forms.Button();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbKho = new System.Windows.Forms.ComboBox();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoaDonIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sanPhamIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soLuongDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nmrSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPhamDat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chiTietHoaDonMuaBindingSource)).BeginInit();
@@ -64,6 +64,11 @@
             // 
             this.nmrSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmrSoLuong.Location = new System.Drawing.Point(420, 171);
+            this.nmrSoLuong.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.nmrSoLuong.Name = "nmrSoLuong";
             this.nmrSoLuong.Size = new System.Drawing.Size(120, 26);
             this.nmrSoLuong.TabIndex = 1;
@@ -117,6 +122,38 @@
             this.dgvSanPhamDat.RowTemplate.Height = 24;
             this.dgvSanPhamDat.Size = new System.Drawing.Size(643, 373);
             this.dgvSanPhamDat.TabIndex = 4;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // hoaDonIdDataGridViewTextBoxColumn
+            // 
+            this.hoaDonIdDataGridViewTextBoxColumn.DataPropertyName = "HoaDonId";
+            this.hoaDonIdDataGridViewTextBoxColumn.HeaderText = "HoaDonId";
+            this.hoaDonIdDataGridViewTextBoxColumn.Name = "hoaDonIdDataGridViewTextBoxColumn";
+            this.hoaDonIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hoaDonIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // sanPhamIdDataGridViewTextBoxColumn
+            // 
+            this.sanPhamIdDataGridViewTextBoxColumn.DataPropertyName = "TenSanPham";
+            this.sanPhamIdDataGridViewTextBoxColumn.HeaderText = "Sản phẩm";
+            this.sanPhamIdDataGridViewTextBoxColumn.Name = "sanPhamIdDataGridViewTextBoxColumn";
+            this.sanPhamIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sanPhamIdDataGridViewTextBoxColumn.Width = 400;
+            // 
+            // soLuongDataGridViewTextBoxColumn
+            // 
+            this.soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
+            this.soLuongDataGridViewTextBoxColumn.HeaderText = "Số lượng";
+            this.soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
+            this.soLuongDataGridViewTextBoxColumn.ReadOnly = true;
+            this.soLuongDataGridViewTextBoxColumn.Width = 200;
             // 
             // chiTietHoaDonMuaBindingSource
             // 
@@ -172,38 +209,6 @@
             this.cbKho.Name = "cbKho";
             this.cbKho.Size = new System.Drawing.Size(253, 28);
             this.cbKho.TabIndex = 7;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // hoaDonIdDataGridViewTextBoxColumn
-            // 
-            this.hoaDonIdDataGridViewTextBoxColumn.DataPropertyName = "HoaDonId";
-            this.hoaDonIdDataGridViewTextBoxColumn.HeaderText = "HoaDonId";
-            this.hoaDonIdDataGridViewTextBoxColumn.Name = "hoaDonIdDataGridViewTextBoxColumn";
-            this.hoaDonIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.hoaDonIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // sanPhamIdDataGridViewTextBoxColumn
-            // 
-            this.sanPhamIdDataGridViewTextBoxColumn.DataPropertyName = "TenSanPham";
-            this.sanPhamIdDataGridViewTextBoxColumn.HeaderText = "Sản phẩm";
-            this.sanPhamIdDataGridViewTextBoxColumn.Name = "sanPhamIdDataGridViewTextBoxColumn";
-            this.sanPhamIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sanPhamIdDataGridViewTextBoxColumn.Width = 400;
-            // 
-            // soLuongDataGridViewTextBoxColumn
-            // 
-            this.soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
-            this.soLuongDataGridViewTextBoxColumn.HeaderText = "Số lượng";
-            this.soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
-            this.soLuongDataGridViewTextBoxColumn.ReadOnly = true;
-            this.soLuongDataGridViewTextBoxColumn.Width = 200;
             // 
             // FrmNhapHangTuNCC
             // 

@@ -51,5 +51,15 @@ namespace BUS
         {
             return da.CapNhatSoLuong(id, soLuong);
         }
+
+        public bool ThemBaoHanh(ThongTinBaoHanh baoHanh)
+        {
+            return da.ThemBaoHanh(baoHanh);
+        }
+
+        public int GetLanBaoHanh(int hoaDonId, int sanPhamId)
+        {
+            return da.GetLanBaoHanh(hoaDonId, sanPhamId);
+        }
     }
 }
