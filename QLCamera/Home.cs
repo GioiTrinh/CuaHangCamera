@@ -61,5 +61,35 @@ namespace QLCamera
             Kho.MdiParent = this;
             Kho.Show();
         }
+
+        private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            FrmBanHang banHang = new FrmBanHang();
+            banHang.StartPosition = FormStartPosition.CenterScreen;
+            banHang.MdiParent = this;
+            banHang.Show();
+        }
+
+        private void nhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNhapHangTuNCC frmNhapHangTuNCC = new FrmNhapHangTuNCC();
+            frmNhapHangTuNCC.StartPosition = FormStartPosition.CenterScreen;
+            frmNhapHangTuNCC.MdiParent = this;
+            frmNhapHangTuNCC.Show();
+        }
+
+        private void bảoHànhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void quảnKýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHoaDon frmHoaDon = new FrmHoaDon();
+            frmHoaDon.StartPosition = FormStartPosition.CenterScreen;
+            frmHoaDon.MdiParent = this;
+            frmHoaDon.Show();
+        }
     }
 }

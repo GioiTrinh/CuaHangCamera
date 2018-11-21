@@ -186,6 +186,24 @@ namespace DAO
                 return false;
             }
         }
+
+        public int GetLastHoaDonId()
+        {
+            string sql = "SELECT TOP (1) [Id] FROM HoaDon ORDER BY Id DESC";
+            
+            try
+            {
+                da.Connect();
+                var dr = da.ExecuteScalar(sql);
+                da.Disconnet();
+                return (int)dr;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return -1;
+            }
+        }
     }
 
 }

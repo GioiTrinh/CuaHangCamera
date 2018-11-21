@@ -8,7 +8,7 @@ namespace DTO
     public class ThongTinBaoHanh
     {
         public int Id { get; set; }
-        public int KhachHangId { get; set; }
+        public int HoaDonId { get; set; } = -1;
         public int SanPhamId { get; set; }
         public int NhanVienId { get; set; }
         public DateTime ThoiGian { get; set; }

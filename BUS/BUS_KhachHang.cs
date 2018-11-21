@@ -45,5 +45,10 @@ namespace BUS
         {
             return da.BanHang(nhanVienId, khachHangId, chiTietHoaDons);
         }
+
+        public int GetLastHoaDonId()
+        {
+            return da.GetLastHoaDonId();
+        }
     }
 }
