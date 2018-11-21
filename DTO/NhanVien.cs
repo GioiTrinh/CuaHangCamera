@@ -9,7 +9,7 @@
         public string Sdt { get; set; }
         public string Email { get; set; }
         public string Cmnd { get; set; }
-        public double Luong { get; set; }
+        public float Luong { get; set; }
         public int CapBac { get; set; }
         public string TenCapBac { get; set; }
     }
