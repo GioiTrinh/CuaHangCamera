@@ -52,6 +52,12 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhanVien.Designer.cs">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLKH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhanVien.resx">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmQLKH.resx">
       <DependentUpon>FrmQLKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,8 +131,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\DTO.ChiTietHoaDonMua.datasource" />
+    <None Include="Properties\DataSources\DTO.KhachHang.datasource" />
     <None Include="Properties\DataSources\DTO.Kho.datasource" />
     <None Include="Properties\DataSources\DTO.NhaCungCap.datasource" />
+    <None Include="Properties\DataSources\DTO.NhanVien.datasource" />
     <None Include="Properties\DataSources\DTO.SanPham.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
