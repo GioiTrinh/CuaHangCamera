@@ -129,6 +129,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\DTO.ChiTietHoaDonMua.datasource" />
     <None Include="Properties\DataSources\DTO.KhachHang.datasource" />
@@ -165,6 +166,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image\supplier.png" />
+    <None Include="Resources\logo1-01.png" />
+    <None Include="Resources\avt-02-01.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
