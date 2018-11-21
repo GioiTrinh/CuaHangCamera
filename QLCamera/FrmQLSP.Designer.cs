@@ -145,7 +145,11 @@
             0,
             0});
             this.nmrGia.Location = new System.Drawing.Point(158, 101);
-            this.nmrGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nmrGia.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.nmrGia.Name = "nmrGia";
             this.nmrGia.Size = new System.Drawing.Size(123, 23);
             this.nmrGia.TabIndex = 3;

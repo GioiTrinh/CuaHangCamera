@@ -44,15 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.dgvQLKH = new System.Windows.Forms.DataGridView();
-            this.khachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoTenKHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaChiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sdtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.khachHangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQLKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khachHangBindingSource)).BeginInit();
@@ -96,7 +96,7 @@
             this.label5.Location = new System.Drawing.Point(54, 155);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 17);
+            this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "Email";
             // 
@@ -105,7 +105,7 @@
             this.txtEmail.Location = new System.Drawing.Point(112, 152);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(157, 23);
+            this.txtEmail.Size = new System.Drawing.Size(157, 26);
             this.txtEmail.TabIndex = 10;
             // 
             // btLuu
@@ -126,7 +126,7 @@
             this.label1.Location = new System.Drawing.Point(54, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mã KH";
             // 
@@ -147,7 +147,7 @@
             this.txtMaKH.Location = new System.Drawing.Point(112, 28);
             this.txtMaKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKH.Name = "txtMaKH";
-            this.txtMaKH.Size = new System.Drawing.Size(89, 23);
+            this.txtMaKH.Size = new System.Drawing.Size(89, 26);
             this.txtMaKH.TabIndex = 0;
             // 
             // label4
@@ -157,7 +157,7 @@
             this.label4.Location = new System.Drawing.Point(48, 93);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Địa chỉ";
             // 
@@ -166,7 +166,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(112, 90);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(157, 23);
+            this.txtDiaChi.Size = new System.Drawing.Size(157, 26);
             this.txtDiaChi.TabIndex = 1;
             // 
             // label3
@@ -176,7 +176,7 @@
             this.label3.Location = new System.Drawing.Point(6, 124);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Số Điện Thoại";
             // 
@@ -185,7 +185,7 @@
             this.txtSDT.Location = new System.Drawing.Point(112, 121);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(157, 23);
+            this.txtSDT.Size = new System.Drawing.Size(157, 26);
             this.txtSDT.TabIndex = 2;
             // 
             // label2
@@ -195,7 +195,7 @@
             this.label2.Location = new System.Drawing.Point(48, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Tên KH";
             // 
@@ -204,7 +204,7 @@
             this.txtTenKH.Location = new System.Drawing.Point(112, 59);
             this.txtTenKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.Size = new System.Drawing.Size(157, 23);
+            this.txtTenKH.Size = new System.Drawing.Size(157, 26);
             this.txtTenKH.TabIndex = 3;
             // 
             // dgvQLKH
@@ -224,30 +224,6 @@
             this.dgvQLKH.Size = new System.Drawing.Size(651, 382);
             this.dgvQLKH.TabIndex = 10;
             this.dgvQLKH.SelectionChanged += new System.EventHandler(this.dgvQLKH_SelectionChanged);
-            // 
-            // khachHangBindingSource
-            // 
-            this.khachHangBindingSource.DataSource = typeof(DTO.KhachHang);
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Location = new System.Drawing.Point(493, 13);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(169, 23);
-            this.txtTimKiem.TabIndex = 12;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(421, 16);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 17);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Tìm kiếm";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -287,9 +263,33 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.Width = 200;
             // 
+            // khachHangBindingSource
+            // 
+            this.khachHangBindingSource.DataSource = typeof(DTO.KhachHang);
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(493, 13);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(169, 26);
+            this.txtTimKiem.TabIndex = 12;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(408, 16);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Tìm kiếm";
+            // 
             // FrmQLKH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 437);
             this.Controls.Add(this.label6);
