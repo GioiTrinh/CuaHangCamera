@@ -43,7 +43,8 @@
             this.txtTaiKhoan.Location = new System.Drawing.Point(285, 49);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(277, 26);
-            this.txtTaiKhoan.TabIndex = 0;
+            this.txtTaiKhoan.TabIndex = 1;
+            this.txtTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTaiKhoan_KeyDown);
             // 
             // label1
             // 
@@ -71,8 +72,9 @@
             this.txtPassword.Location = new System.Drawing.Point(285, 90);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(277, 26);
-            this.txtPassword.TabIndex = 0;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // btnDangNhap
             // 
@@ -80,7 +82,7 @@
             this.btnDangNhap.Location = new System.Drawing.Point(468, 143);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(94, 36);
-            this.btnDangNhap.TabIndex = 4;
+            this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -107,6 +109,7 @@
             this.ClientSize = new System.Drawing.Size(592, 353);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
