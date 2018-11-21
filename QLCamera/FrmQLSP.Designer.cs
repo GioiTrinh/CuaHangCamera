@@ -46,14 +46,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvQLSP = new System.Windows.Forms.DataGridView();
+            this.BaoHanhString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maSpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenSpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaoHanhString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sanPhamBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.nhaCungCapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmrGia)).BeginInit();
@@ -249,7 +249,6 @@
             // 
             // dgvQLSP
             // 
-            this.dgvQLSP.AllowUserToAddRows = false;
             this.dgvQLSP.AllowUserToDeleteRows = false;
             this.dgvQLSP.AutoGenerateColumns = false;
             this.dgvQLSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -263,54 +262,17 @@
             this.dgvQLSP.Location = new System.Drawing.Point(13, 37);
             this.dgvQLSP.MultiSelect = false;
             this.dgvQLSP.Name = "dgvQLSP";
-            this.dgvQLSP.ReadOnly = true;
             this.dgvQLSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvQLSP.Size = new System.Drawing.Size(565, 504);
             this.dgvQLSP.TabIndex = 3;
             this.dgvQLSP.SelectionChanged += new System.EventHandler(this.dgvQLSP_SelectionChanged);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // maSpDataGridViewTextBoxColumn
-            // 
-            this.maSpDataGridViewTextBoxColumn.DataPropertyName = "MaSp";
-            this.maSpDataGridViewTextBoxColumn.HeaderText = "Mã Sản Phẩm";
-            this.maSpDataGridViewTextBoxColumn.Name = "maSpDataGridViewTextBoxColumn";
-            this.maSpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maSpDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // tenSpDataGridViewTextBoxColumn
-            // 
-            this.tenSpDataGridViewTextBoxColumn.DataPropertyName = "TenSp";
-            this.tenSpDataGridViewTextBoxColumn.HeaderText = "Tên Sản Phẩm";
-            this.tenSpDataGridViewTextBoxColumn.Name = "tenSpDataGridViewTextBoxColumn";
-            this.tenSpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tenSpDataGridViewTextBoxColumn.Width = 200;
             // 
             // BaoHanhString
             // 
             this.BaoHanhString.DataPropertyName = "BaoHanhString";
             this.BaoHanhString.HeaderText = "Bảo Hành";
             this.BaoHanhString.Name = "BaoHanhString";
-            this.BaoHanhString.ReadOnly = true;
             this.BaoHanhString.Width = 150;
-            // 
-            // giaDataGridViewTextBoxColumn
-            // 
-            this.giaDataGridViewTextBoxColumn.DataPropertyName = "Gia";
-            this.giaDataGridViewTextBoxColumn.HeaderText = "Giá";
-            this.giaDataGridViewTextBoxColumn.Name = "giaDataGridViewTextBoxColumn";
-            this.giaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sanPhamBindingSource
-            // 
-            this.sanPhamBindingSource.DataSource = typeof(DTO.SanPham);
             // 
             // label6
             // 
@@ -331,6 +293,37 @@
             this.txtTimKiem.Size = new System.Drawing.Size(170, 23);
             this.txtTimKiem.TabIndex = 6;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // maSpDataGridViewTextBoxColumn
+            // 
+            this.maSpDataGridViewTextBoxColumn.DataPropertyName = "MaSp";
+            this.maSpDataGridViewTextBoxColumn.HeaderText = "Mã Sản Phẩm";
+            this.maSpDataGridViewTextBoxColumn.Name = "maSpDataGridViewTextBoxColumn";
+            this.maSpDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // tenSpDataGridViewTextBoxColumn
+            // 
+            this.tenSpDataGridViewTextBoxColumn.DataPropertyName = "TenSp";
+            this.tenSpDataGridViewTextBoxColumn.HeaderText = "Tên Sản Phẩm";
+            this.tenSpDataGridViewTextBoxColumn.Name = "tenSpDataGridViewTextBoxColumn";
+            this.tenSpDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // giaDataGridViewTextBoxColumn
+            // 
+            this.giaDataGridViewTextBoxColumn.DataPropertyName = "Gia";
+            this.giaDataGridViewTextBoxColumn.HeaderText = "Giá";
+            this.giaDataGridViewTextBoxColumn.Name = "giaDataGridViewTextBoxColumn";
+            // 
+            // sanPhamBindingSource
+            // 
+            this.sanPhamBindingSource.DataSource = typeof(DTO.SanPham);
             // 
             // nhaCungCapBindingSource
             // 
