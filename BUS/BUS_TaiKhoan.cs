@@ -24,5 +24,16 @@ namespace BUS
         {
             return da.DoiMatKhau(password, id);
         }
+
+        public TaiKhoan GetTaiKhoanNhanVienHienTai(int id)
+        {
+            return da.GetTaiKhoanNhanVienHienTai(id);
+        }
+
+        public int GetUserId(string username, string password)
+        {
+            return da.GetUserId(username, password);
+        }
+
     }
 }

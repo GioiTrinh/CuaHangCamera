@@ -115,7 +115,7 @@ namespace QLCamera
 
         private string RenderMaNhaCungCap()
         {
-            var stt = (nhaCungCaps?.Count ?? 0) + 1;
+            var stt = GetMaxId() + 1;
             var curLength = stt.ToString().Length + Utilities.PREFIX_MaNV.Length;
             string additionalZero = "";
             for (int i = 0; i < Utilities.MaNV_LENGTH - curLength; i++)
@@ -125,6 +125,23 @@ namespace QLCamera
             return Utilities.PREFIX_MaNV + additionalZero + stt.ToString();
         }
 
+        private int GetMaxId()
+        {
+            if (nhaCungCaps == null || !nhaCungCaps.Any())
+                return 0;
+            else
+            {
+                var listIds = nhaCungCaps.Select(x => x.Id).ToList();
+                var maxId = listIds.Max();
+                var maNv = nhaCungCaps.Find(x => x.Id == maxId).MaNCC;
+                var d = maNv.Replace(Utilities.PREFIX_MaNCC, "");
+                if (int.TryParse(d, out int m))
+                {
+                    return m;
+                }
+                return 0;
+            }
+        }
         private void btnXoa_Click(object sender, EventArgs e)
         {
             this.XoaNhaCungCap();

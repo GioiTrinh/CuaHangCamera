@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QLCamera
@@ -107,7 +108,7 @@ namespace QLCamera
 
         private string RenderMaSanPham()
         {
-            var stt = ((sanPhams?.Count ?? 0) + 1);
+            var stt = (GetMaxId() + 1);
             var curLength = Utilities.PREFIX_MASANPHAM.Length + stt.ToString().Length;
             string additionalZero = "";
             for (int i = 0; i < Utilities.MASP_LENGTH - curLength; i++)
@@ -117,6 +118,23 @@ namespace QLCamera
             return Utilities.PREFIX_MASANPHAM + additionalZero + stt.ToString();
         }
 
+        private int GetMaxId()
+        {
+            if (sanPhams == null || !sanPhams.Any())
+                return 0;
+            else
+            {
+                var listIds = sanPhams.Select(x => x.Id).ToList();
+                var maxId = listIds.Max();
+                var maNv = sanPhams.Find(x => x.Id == maxId).MaSp;
+                var d = maNv.Replace(Utilities.PREFIX_MASANPHAM, "");
+                if (int.TryParse(d, out int m))
+                {
+                    return m;
+                }
+                return 0;
+            }
+        }
         private void nmrThang_ValueChanged(object sender, EventArgs e)
         {
 

@@ -13,9 +13,11 @@ namespace QLCamera
     public partial class FormDangNhap : Form
     {
         BUS_TaiKhoan bus;
+        BUS_NhanVien nv;
         public FormDangNhap()
         {
             bus = new BUS_TaiKhoan();
+            nv = new BUS_NhanVien();
             InitializeComponent();
         }
 
@@ -38,6 +40,8 @@ namespace QLCamera
                 if (bus.CheckLogIn(txtTaiKhoan.Text.Trim(), txtPassword.Text.Trim()))
                 {
                     Program._isSignedIn = true;
+                    var nhanVien = nv.GetNhanVien(bus.GetUserId(txtTaiKhoan.Text.Trim(), txtPassword.Text.Trim()));
+                    Program._CapBac = nhanVien.CapBac;
                     this.Close();
                 }
             }

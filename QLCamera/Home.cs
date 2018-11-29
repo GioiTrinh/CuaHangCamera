@@ -19,7 +19,7 @@ namespace QLCamera
 
         private void Home_Load(object sender, EventArgs e)
         {
-
+            this.tàiKhoảnToolStripMenuItem.Visible = Program._CapBac == (int)CapBacNhanVien.Admin;
         }
 
         private void mnsSP_Click(object sender, EventArgs e)
@@ -60,6 +60,14 @@ namespace QLCamera
             Kho.StartPosition = FormStartPosition.CenterScreen;
             Kho.MdiParent = this;
             Kho.Show();
+        }
+        
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormQLTaiKhoan tk = new FormQLTaiKhoan();
+            tk.StartPosition = FormStartPosition.CenterScreen;
+            tk.MdiParent = this;
+            tk.Show();
         }
     }
 }

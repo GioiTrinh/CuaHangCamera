@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace QLCamera
@@ -104,7 +105,7 @@ namespace QLCamera
 
         private string RenderMaKho()
         {
-            var stt = ((khos?.Count ?? 0) + 1);
+            var stt = (GetMaxId() + 1);
             var curLength = Utilities.PREFIX_MAKHO.Length + stt.ToString().Length;
             string additionalZero = "";
             for (int i = 0; i < Utilities.MAKHO_LENGTH - curLength; i++)
@@ -114,6 +115,23 @@ namespace QLCamera
             return Utilities.PREFIX_MAKHO + additionalZero + stt.ToString();
         }
 
+        private int GetMaxId()
+        {
+            if (khos == null || !khos.Any())
+                return 0;
+            else
+            {
+                var listIds = khos.Select(x => x.Id).ToList();
+                var maxId = listIds.Max();
+                var maNv = khos.Find(x => x.Id == maxId).MaKho;
+                var d = maNv.Replace(Utilities.PREFIX_MAKHO, "");
+                if (int.TryParse(d, out int m))
+                {
+                    return m;
+                }
+                return 0;
+            }
+        }
         private void dgvQLSP_SelectionChanged(object sender, EventArgs e)
         {
             if(dgvQLSP.SelectedRows.Count == 1)

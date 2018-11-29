@@ -30,6 +30,31 @@ namespace DAO
             }
         }
 
+        public int GetUserId(string username, string password)
+        {
+            string sql = "SELECT UserId FROM TaiKhoan WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            try
+            {
+                var result = -1;
+                da.Connect();
+
+                var dr = da.ExecuteReader(sql);
+                while (dr.Read())
+                {
+                    if(dr != null)
+                    {
+                        result = (int)dr[0];
+                    }
+                }
+                da.Disconnet();
+                return result;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public bool TaoTaiKhoan(TaiKhoan tk)
         {
             string sql = @"INSERT INTO TaiKhoan VALUES('" + tk.Username + "', '" + tk.Password + "', " + tk.UserId +  ")";
@@ -62,6 +87,35 @@ namespace DAO
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public TaiKhoan GetTaiKhoanNhanVienHienTai(int id)
+        {
+            TaiKhoan tk = new TaiKhoan();
+            string sql = @"SELECT Id, Username, Password, UserId FROM TaiKhoan WHERE UserId = " + id;
+            try
+            {
+                da.Connect();
+                var dr = da.ExecuteReader(sql);
+                while (dr.Read())
+                {
+                    if (dr != null)
+                    {
+                        tk.Id = (int)dr[0];
+                        tk.Username = dr[1].ToString().Trim();
+                        tk.Password = dr[2].ToString().Trim();
+                        tk.UserId = (int)dr[3];
+                    }
+                    else
+                        tk = null;
+                }
+                da.Disconnet();
+                return tk;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

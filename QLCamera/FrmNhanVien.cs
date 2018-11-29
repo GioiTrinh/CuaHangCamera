@@ -74,7 +74,7 @@ namespace QLCamera
 
         private string RenderMaNhanVien()
         {
-            var stt = (nhanViens?.Count ?? 0) + 1;
+            var stt = GetMaxId() + 1;
             var curLength = stt.ToString().Length + Utilities.PREFIX_MaNV.Length;
             string additionalZero = "";
             for (int i = 0; i < Utilities.MaNV_LENGTH - curLength; i++)
@@ -82,6 +82,24 @@ namespace QLCamera
                 additionalZero += "0";
             }
             return Utilities.PREFIX_MaNV + additionalZero + stt.ToString();
+        }
+
+        private int GetMaxId()
+        {
+            if (nhanViens == null || !nhanViens.Any())
+                return 0;
+            else
+            {
+                var listIds = nhanViens.Select(x => x.Id).ToList();
+                var maxId = listIds.Max();
+                var maNv = nhanViens.Find(x => x.Id == maxId).MaNV;
+                var d = maNv.Replace(Utilities.PREFIX_MaNV, "");
+                if (int.TryParse(d, out int m))
+                {
+                    return m;
+                }
+                return 0;
+            }
         }
 
         private void FrmNhanVien_Load(object sender, EventArgs e)

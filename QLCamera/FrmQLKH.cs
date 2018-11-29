@@ -73,7 +73,7 @@ namespace QLCamera
 
         private string RenderMaKhachHang()
         {
-            var stt = (khachHangs?.Count ?? 0) + 1;
+            var stt = GetMaxId() + 1;
             var curLength = stt.ToString().Length + Utilities.PREFIX_MaKH.Length;
             string additionalZero = "";
             for (int i = 0; i < Utilities.MaKH_LENGTH - curLength; i++)
@@ -83,6 +83,23 @@ namespace QLCamera
             return Utilities.PREFIX_MaKH + additionalZero + stt.ToString();
         }
 
+        private int GetMaxId()
+        {
+            if (khachHangs == null || !khachHangs.Any())
+                return 0;
+            else
+            {
+                var listIds = khachHangs.Select(x => x.Id).ToList();
+                var maxId = listIds.Max();
+                var maNv = khachHangs.Find(x => x.Id == maxId).MaKH;
+                var d = maNv.Replace(Utilities.PREFIX_MaKH, "");
+                if (int.TryParse(d, out int m))
+                {
+                    return m;
+                }
+                return 0;
+            }
+        }
 
         private void FrmQLKH_Load(object sender, EventArgs e)
         {

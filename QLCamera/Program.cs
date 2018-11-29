@@ -9,6 +9,7 @@ namespace QLCamera
     static class Program
     {
         public static bool _isSignedIn = false;
+        public static int _CapBac = -1;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
